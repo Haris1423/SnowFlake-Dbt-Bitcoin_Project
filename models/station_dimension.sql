@@ -1,3 +1,4 @@
+{{ config(materialized='table') }}
 WITH CTE AS (
     SELECT DISTINCT
     START_STATIO_ID AS STATION_ID, 
@@ -7,7 +8,7 @@ WITH CTE AS (
     
      FROM 
 
-    {{ source('demo', 'bike') }}
+    {{ ref('stage_bike') }}
     where RIDE_ID!='ride_id'
 )
 select * from cte

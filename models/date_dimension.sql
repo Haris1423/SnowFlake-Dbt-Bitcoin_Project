@@ -11,7 +11,7 @@ WITH cte AS (
 
         {{ get_season('STARTED_AT') }} AS SEASON_OF_YEAR
 
-    FROM {{ source('demo', 'bike') }}
+    FROM {{ ref('stage_bike') }}
 where RIDE_ID!='ride_id'
 )
 
